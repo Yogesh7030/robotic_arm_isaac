@@ -7,32 +7,31 @@ The project is distributed using **Docker** to ensure reproducibility and ease o
 
 The workspace consists of **five ROS 2 packages**:
 
-### 1. `my_robot_description`
+### 1. my_robot_description
 - Robot URDF/XACRO description
 - Switch the hardware interface plugin depending on whether the system is running with or without Isaac Sim inside my_robot.ros2_control.xacro
 - Includes a **USD file for Isaac Sim** containing:
   - Action Graph for ROS–Isaac communication
   - Joint state publishers
   - Joint command subscribers
-- Serves as the primary robot model for both MoveIt and Isaac Sim
 
-### 2. `my_robot_moveit_config`
+### 2. my_robot_moveit_config
 - MoveIt 2 configuration package
 - Planning groups, controllers, and planners
 - OMPL-based motion planning setup
 
-### 3. `my_robot_bringup`
+### 3. my_robot_bringup
 - Launch files for the complete system
 - Starts:
   - Robot State Publisher
   - MoveIt `move_group`
   - RViz visualization
 
-### 4. `my_robot_interfaces`
+### 4. my_robot_interfaces
 - Custom ROS 2 interfaces
 - Defines messages used for robot control
 
-### 5. `my_robot_commander`
+### 5. my_robot_commander
 - High-level MoveIt commander package
 - Allows commanding the robot using:
   - Joint-space goals
