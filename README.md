@@ -9,6 +9,7 @@ The workspace consists of **five ROS 2 packages**:
 
 ### 1. `my_robot_description`
 - Robot URDF/XACRO description
+- Switch the hardware interface plugin depending on whether the system is running with or without Isaac Sim inside my_robot.ros2_control.xacro.
 - Includes a **USD file for Isaac Sim** containing:
   - Action Graph for ROS–Isaac communication
   - Joint state publishers
@@ -48,25 +49,28 @@ Two Docker Compose configurations are provided:
 
 ## Running the System
 
-### 1. ROS 2 + MoveIt 2 (without Isaac Sim)
+### 1. ROS 2 + MoveIt 2 (with and without Isaac Sim)
 
 ```bash
 docker compose up -d
 docker exec -it moveit2 bash
-
-**## Inside the container:**
-ros2 launch my_robot_bringup display.launch.xml
-
-### 1. ROS 2 + MoveIt 2 (with Isaac Sim)
-## This mode assumes Isaac Sim is running on the host system.
-
-```bash
-docker compose up -d
-docker exec -it moveit2 bash
+```
 
 ## Inside the container:
 ```bash
 ros2 launch my_robot_bringup display.launch.xml
+```
+
+### Directly on the host machine:
+
+```bash
+cd
+mkdir my_workspace
+git clone https://github.com/Yogesh7030/robotic_arm_isaac.git
+colcon build
+source install/setup.bash
+ros2 launch my_robot_bringup display.launch.xml
+```
 
 Isaac Sim Integration Notes
 ---------------------------
@@ -105,7 +109,3 @@ License
 -------
 
 This project is licensed under the **MIT License**.
-
-
-
-
