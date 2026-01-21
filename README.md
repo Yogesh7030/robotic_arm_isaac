@@ -3,16 +3,6 @@
 This repository contains a **ROS 2 workspace for a robotic arm**, integrated with **MoveIt 2** for motion planning and **NVIDIA Isaac Sim** for simulation.  
 The project is distributed using **Docker** to ensure reproducibility and ease of use.
 
----
-
-git clone <repository-url>
-cd robotic_arm_isaac
-docker compose up -d
-docker exec -it moveit2 bash
-ros2 launch my_robot_bringup display.launch.xml
-
----
-
 ## Workspace Overview
 
 The workspace consists of **five ROS 2 packages**:
@@ -25,14 +15,10 @@ The workspace consists of **five ROS 2 packages**:
   - Joint command subscribers
 - Serves as the primary robot model for both MoveIt and Isaac Sim
 
----
-
 ### 2. `my_robot_moveit_config`
 - MoveIt 2 configuration package
 - Planning groups, controllers, and planners
 - OMPL-based motion planning setup
-
----
 
 ### 3. `my_robot_bringup`
 - Launch files for the complete system
@@ -41,21 +27,15 @@ The workspace consists of **five ROS 2 packages**:
   - MoveIt `move_group`
   - RViz visualization
 
----
-
 ### 4. `my_robot_interfaces`
 - Custom ROS 2 interfaces
-- Defines messages and services used for robot control
-
----
+- Defines messages used for robot control
 
 ### 5. `my_robot_commander`
 - High-level MoveIt commander package
 - Allows commanding the robot using:
   - Joint-space goals
   - End-effector pose goals
-
----
 
 ## Docker Setup
 
@@ -66,8 +46,6 @@ Two Docker Compose configurations are provided:
 - **ROS 2 + MoveIt 2 only**
 - **ROS 2 + MoveIt 2 with Isaac Sim communication**
 
----
-
 ## Running the System
 
 ### 1. ROS 2 + MoveIt 2 (without Isaac Sim)
@@ -76,8 +54,7 @@ Two Docker Compose configurations are provided:
 docker compose up -d
 docker exec -it moveit2 bash
 
-## Inside the container:
-```bash
+**## Inside the container:**
 ros2 launch my_robot_bringup display.launch.xml
 
 ### 1. ROS 2 + MoveIt 2 (with Isaac Sim)
