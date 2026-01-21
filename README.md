@@ -9,7 +9,7 @@ The workspace consists of **five ROS 2 packages**:
 
 ### 1. `my_robot_description`
 - Robot URDF/XACRO description
-- Switch the hardware interface plugin depending on whether the system is running with or without Isaac Sim inside my_robot.ros2_control.xacro.
+- Switch the hardware interface plugin depending on whether the system is running with or without Isaac Sim inside my_robot.ros2_control.xacro
 - Includes a **USD file for Isaac Sim** containing:
   - Action Graph for ROS–Isaac communication
   - Joint state publishers
@@ -55,6 +55,10 @@ Two Docker Compose configurations are provided:
 docker compose up -d
 docker exec -it moveit2 bash
 ```
+```bash
+docker compose -f docker-compose-issac.yaml up -d
+docker exec -it moveit2 bash
+```
 
 ## Inside the container:
 ```bash
@@ -89,19 +93,9 @@ RViz Visualization
 To visualize the robot model and TF frames in RViz:
 
 1. Add a **RobotModel** display
-2. Set the **Description Topic** to:
-
-## /robot_description
-## This ensures RViz correctly displays the robot model when running inside Docker.
-
-Motion Planning
----------------
-
-- Planning speed can be adjusted directly within the MoveIt planner
-
-- Supported planning modes:
-  - Joint-space motion planning
-  - End-effector pose planning
+2. Set the **Description Topic** to: /robot_description
+- This ensures RViz correctly displays the robot model when running inside Docker.
+3. Planning speed can be adjusted directly within the MoveIt planner
 
 * * *
 
