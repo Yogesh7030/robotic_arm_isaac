@@ -51,11 +51,11 @@ Two Docker Compose configurations are provided:
 ### 1. ROS 2 + MoveIt 2 (with and without Isaac Sim)
 
 ```bash
-docker compose up -d
+docker compose -f docker-compose-issac.yaml up -d
 docker exec -it moveit2 bash
 ```
 ```bash
-docker compose -f docker-compose-issac.yaml up -d
+docker compose up -d
 docker exec -it moveit2 bash
 ```
 
@@ -75,10 +75,10 @@ source install/setup.bash
 ros2 launch my_robot_bringup display.launch.xml
 ```
 
-Isaac Sim Integration Notes
----------------------------
+Isaac Sim Notes
+---------------
 
-- Isaac Sim runs directly on the **host machine**
+- Isaac Sim runs directly on the **host machine**, open the **arm.usd** file and start the simulation
 - ROS 2 communication is handled via the **Action Graph defined in the USD file**
 - The USD file:
   - Publishes joint states
