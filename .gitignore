@@ -1,0 +1,17 @@
+# ROS build artifacts
+build/
+install/
+log/
+
+# Dev / build-only compose file
+docker-compose.build.yml
+Dockerfile
+
+# Large / generated assets
+arm_camera.usd
+my_robot.usd
+
+# Editor / IDE junk
+.vscode/
+*.swp
+__pycache__/
