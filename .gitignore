@@ -4,7 +4,7 @@ install/
 log/
 
 # Dev / build-only compose file
-docker-compose.build.yml
+docker-compose-build.yml
 Dockerfile
 
 # Large / generated assets
